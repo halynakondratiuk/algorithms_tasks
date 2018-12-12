@@ -1,0 +1,25 @@
+public static boolean palindromeString(String str) {
+    int size = str.length() - 1;
+    boolean isPalindrome = true;
+    
+    for (int i = 0; i <= Math.ceil(size/2); i++) {
+        if (str.charAt(i) != str.charAt(size))
+            return false;
+        size--;
+    } 
+    
+   return isPalindrome;
+
+}
+
+public static boolean palindromeNumber(int num) { 
+    int operateNum = num;
+    int receivedNum = 0;
+    
+    while(operateNum != 0) {
+        receivedNum = receivedNum*10 + (operateNum % 10);
+        operateNum = operateNum / 10;
+    }
+    
+    return num == receivedNum;
+}
