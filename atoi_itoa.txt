@@ -1,12 +1,13 @@
 public static String itoa(int number) {
         StringBuilder newStr = new StringBuilder();
+        int operateNum = number;
         
         if (number == 0) 
             return newStr.append(number).toString();
         
-        while (number != 0 ) {
-            newStr.append(Math.abs(number % 10));
-            number = number / 10;
+        while (operateNum != 0 ) {
+            newStr.append(Math.abs(operateNum % 10));
+            operateNum = operateNum / 10;
         }
         
         if (number < 0)
