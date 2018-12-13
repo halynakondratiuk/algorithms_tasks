@@ -1,0 +1,37 @@
+public static String itoa(int number) {
+        StringBuilder newStr = new StringBuilder();
+        
+        if (number == 0) 
+            return newStr.append(number).toString();
+        
+        while (number != 0 ) {
+            newStr.append(Math.abs(number % 10));
+            number = number / 10;
+        }
+        
+        if (number < 0)
+            newStr.append("-");
+        
+        return newStr.reverse().toString();
+    }
+    
+    public static int atoi(String str) {
+        if (str.isEmpty())
+            return 0;
+        
+        int result = 0;
+        int sign = 1;
+        int i = 0;
+        
+        if (str.charAt(0) == '-') {
+            i++;
+            sign = -1;
+        }
+        
+        for (; i < str.length(); i++){
+            if (!Character.isDigit(str.charAt(i)))
+                return 0;
+            result = result*10 + Character.getNumericValue(str.charAt(i));
+        }
+        return sign * result;
+    }
