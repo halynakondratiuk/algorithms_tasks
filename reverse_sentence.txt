@@ -1,0 +1,12 @@
+ public static String reverseSentence(String str) {
+        if (str.isEmpty()) 
+            return "The empty string.";
+            
+        String[] words = str.split(" ");
+        StringBuffer reverseStr = new StringBuffer();
+        
+        for(int i=words.length-1; i>=0; i--)
+            reverseStr.append(words[i]).append(" ");
+
+        return reverseStr.toString();
+    }
