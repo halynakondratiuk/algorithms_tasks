@@ -1,0 +1,20 @@
+public static boolean checkIsomorphicWords(String str1, String str2) {
+       Map<Character, Character> chars = new HashMap<Character, Character>();
+        int sizeFirstStr = str1.length();
+        int sizeSecondStr = str2.length();
+        
+        if (sizeFirstStr != sizeSecondStr)
+            return false;
+  
+        for (int i=0; i<sizeFirstStr; i++) {
+            if (Character.isDigit(str1.charAt(i)) || Character.isDigit(str2.charAt(i)))
+                return false;
+            if (!chars.containsKey(str1.charAt(i)))
+                chars.put(str1.charAt(i), str2.charAt(i));
+            else {
+                if (chars.get(str1.charAt(i)) != str2.charAt(i))
+                    return false;
+            }    
+        }
+        return true;
+    }
