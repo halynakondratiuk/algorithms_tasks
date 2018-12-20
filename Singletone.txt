@@ -1,0 +1,10 @@
+class Singletone {
+    private static Singletone instance = null;
+    
+    private Singletone() {
+    }
+    
+    public static Singletone getInstance() {
+     return (instance == null) ? new Singletone() : instance;
+    }
+}
