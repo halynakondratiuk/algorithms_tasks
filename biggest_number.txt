@@ -1,27 +1,20 @@
 public static String biggestNumber(int[] numbers) {
-        StringBuffer someStr = new StringBuffer();
         int size = numbers.length;
+        String[] arr = new String[size];
+        String temp = "";
         String result = "";
         
-        
-        for (int i=0; i<size; i++) {
-            someStr.append(numbers[i]).append(" ");
-        }
-        
-        String[] strNums = someStr.toString().split(" ");
-        String temp = "";
-        
-        for (int j=0; j<strNums.length-1; j++) {
-            int compare = strNums[j+1].compareTo(strNums[j]);
-            if ( compare > 0 ) {
-                temp = strNums[j];
-                strNums[j] = strNums[j+1];
-                strNums[j+1] = temp;
+        for (int l=0; l<size; l++)
+            arr[l] = String.valueOf(numbers[l]);
+            
+        Arrays.sort(arr, new Comparator<String>(){
+            public int compare(String a, String b){
+                return (b+a).compareTo(a+b);
             }
-            result = result.concat(strNums[j]);
-        }
-        
-        
-        // return someStr.toString();
+        });
+               
+        for (int i=0; i<size; i++)
+            result = result.concat(arr[i]);
+                
         return result;
     }
