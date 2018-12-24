@@ -1,0 +1,30 @@
+public static boolean isPrime(int n) {
+        int bound = (int)Math.sqrt(n);
+         
+        if(n == 2 || n == 3){
+            return true;
+        }
+        
+        for (int i = 2; i <= bound; i++) {
+            if (n % i == 0)
+                return false;
+        }
+
+        return true;
+    }
+    
+    public static int sumOfPrimeNumbers() {
+        int count = 0;
+        int sum = 0;
+        int n = 2;
+        
+        while (count != 1000) {
+            if (isPrime(n)) {
+                sum += n;
+                count++;
+            }
+            n++;
+        }
+        
+       return sum; 
+    }
