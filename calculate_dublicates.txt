@@ -1,0 +1,19 @@
+public static void calcDublicates(String str) {
+        int size = str.length();
+        HashMap<Character, Integer> dublicates = new HashMap<Character, Integer>();
+        
+        for(int i=0; i<size; i++) {
+            if (Character.isWhitespace(str.charAt(i)))
+                continue;
+            if (dublicates.containsKey(str.charAt(i))) {
+                Integer value = dublicates.get(str.charAt(i));
+                dublicates.put(str.charAt(i), value + 1);
+            } else
+                dublicates.put(str.charAt(i), 1);
+        }
+        
+        for(Character ch:dublicates.keySet()){
+            if(dublicates.get(ch) > 1)
+               System.out.println(String.format("%s => %s", ch, dublicates.get(ch)));
+        }
+    }
