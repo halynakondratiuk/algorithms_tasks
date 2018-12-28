@@ -1,0 +1,51 @@
+ public static void mergeTwoHalves(int[] arr, int min, int middle, int max) {
+        int leftLen = middle - min + 1;
+        int rightLen = max - middle;
+        int indexL = 0;
+        int indexR = 0;
+        int index = min;
+        
+        int[] left = new int[leftLen];
+        int[] right = new int[rightLen];
+        
+        for (int i=0; i<leftLen; i++)
+            left[i] = arr[min + i];
+        
+        for (int j=0; j<rightLen; j++)
+            right[j] = arr[middle + j + 1];
+            
+        while (leftLen > indexL && rightLen > indexR) {
+            if (left[indexL] <= right[indexR]) {
+                arr[index] = left[indexL];
+                indexL++;
+            } else {
+                arr[index] = right[indexR];
+                indexR++;
+            }
+            index++;
+        }
+        
+        while (leftLen > indexL) {
+            arr[index] = left[indexL];
+            indexL++;
+            index++;
+        }
+        
+        while (rightLen > indexR) {
+            arr[index] = right[indexR];
+            indexR++;
+            index++;
+        }
+    }
+    
+    public static void mergeSort(int[] arr, int min, int max) {
+        int middle = 0;
+        
+        if (min < max) {
+            middle = (max + min)/2;
+            mergeSort(arr, min, middle);
+            mergeSort(arr, middle + 1, max);
+            
+            mergeTwoHalves(arr, min, middle, max);
+        }
+    }

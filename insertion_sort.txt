@@ -1,0 +1,36 @@
+ public static void insertionSort(int[] arr) {
+        int size = arr.length;
+        int oldPos = 1;
+        int newPos;
+        int temp;
+        
+        while (oldPos < size) {
+            newPos = oldPos;
+            while (newPos > 0 && (arr[newPos-1] > arr[newPos])) {
+                temp = arr[newPos];
+                arr[newPos] = arr[newPos-1];
+                arr[newPos-1] = temp;
+                newPos--;
+            }
+            oldPos++;
+        }
+        for (int i=0; i<size; i++)
+            System.out.println(arr[i]);
+    }
+    
+    public static void insertionSort(int[] arr) {
+        int size = arr.length;
+        int temp;
+        
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < i; j++) {
+                if ((arr[i] < arr[j])) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                } 
+            }
+        }
+        for (int k=0; k<size; k++)
+            System.out.println(arr[k]);
+    }
